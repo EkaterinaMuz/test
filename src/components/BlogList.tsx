@@ -61,7 +61,7 @@ export const BlogList = React.memo((): JSX.Element => {
 				{
 					Object.values(getallPosts).map(({ post, reactions }: { post: IPost, reactions: IReactions }, index) => <BlogCard title={post.title} reactions={reactions} id={post.id} index={index} key={post.userId} />)
 				}
-			</List> dsds
+			</List>
 
 		</>
 	);

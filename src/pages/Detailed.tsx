@@ -53,8 +53,6 @@ export const Detailed = () => {
 	const { id } = useParams();
 	const [post, setPost] = useState<IPost>();
 
-	// const dispatch: AppDispatch = useDispatch();
-
 	useEffect(() => {
 		fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
 			.then(response => response.json())
@@ -65,15 +63,11 @@ export const Detailed = () => {
 
 	const reactions = useSelector((state: RootState) => reactionsByPostId(state, Number(id)));
 
-	// const onClick = (id: number | undefined, reaction: 'likes' | 'dislikes') => {
-	// 	if (id) dispatch(addReaction({ id, reaction }))
-	// }
 
 	return (
 		<Container>
 			<Header>
 				<Button onClick={() => navigate(-1)}><IoArrowBack /> Вернуться к статьям</Button>
-				{/* <ReactionsBlock reactions={reactions} onClick={(reaction) => onClick(Number(id), reaction)} /> */}
 				<ReactionsBlock reactions={reactions} id={Number(id)} />
 			</Header>
 			{

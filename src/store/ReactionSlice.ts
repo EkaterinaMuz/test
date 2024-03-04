@@ -56,18 +56,6 @@ export const ReactionSlice = createSlice({
 				}	
 			})
 		})
-		.addCase(fetchingSearchedPosts.fulfilled, (state, {payload}: PayloadAction<IPost[]>) => {
-			state = {};
-			const searchedPosts = payload.map(post => {
-				state[post.id] = {
-					post,
-					reactions: {
-						'likes': Math.floor(Math.random() * 50),
-						'dislikes': Math.floor(Math.random() * 50)
-					}
-				}	
-			});
-		})
 	},
 	reducers: {
 		addReaction(state, {payload}: PayloadAction<ReactionPayload>) {
